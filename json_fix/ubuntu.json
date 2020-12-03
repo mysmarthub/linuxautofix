@@ -1,0 +1,60 @@
+{
+  "options": {
+    "name": "Ubuntu, Kubuntu, Linux Mint",
+    "pack_man": "sudo apt -y install",
+    "pip_man": "pip3 install",
+    "snap_man": "sudo snap install",
+    "file_fixer": "sudo echo"
+  },
+  "pre_install": [
+    "sudo apt update"
+  ],
+  "install": {
+    "pack_man": [
+      "python3-pip",
+      "python3-dev",
+      "python3-setuptools",
+      "git",
+      "htop",
+      "twine",
+      "tree",
+      "cmatrix",
+      "vlc",
+      "snap",
+      "postgresql",
+      "cmatrix",
+      "httpie"
+    ],
+    "pip_man": [
+      "virtualenv"
+    ],
+    "snap_man": [
+      "docker"
+    ]
+  },
+  "file_fix": {
+    "fix": {
+      "/etc/systemd/system.conf": [
+        "DefaultTimeoutStopSec=10s"
+      ],
+      "/etc/default/ufw": [
+        "ENABLED=yes"
+      ],
+      "/etc/sysctl.conf": [
+        "vm.swappiness=0", "vm.vfs_cache_pressure = 1000"
+      ]
+    }
+  },
+  "post_install": [
+    "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common",
+    "sudo apt install curl",
+    "sudo update-grub",
+    "systemctl daemon-reload",
+    "sudo ufw enable",
+    "sudo ufw default deny",
+    "sudo ufw deny ssh",
+    "sudo ufw logging on",
+    "sudo ufw status verbose",
+    "sudo sysctl -p"
+  ]
+}
