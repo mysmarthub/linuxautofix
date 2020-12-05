@@ -9,7 +9,11 @@
 import json
 import os
 import sys
+import shutil
 from pathlib import Path
+
+
+COLUMNS, _ = shutil.get_terminal_size()
 
 
 def get_absolute_file_path(path):
@@ -18,12 +22,12 @@ def get_absolute_file_path(path):
 
 def logo_dec(func):
     def deco():
-        print('Aleksandr Suvorov | myhackband@ya.ru'.center(79, '-'))
-        print('Автонастройка дистрибутивов Linux после установки'.center(79, '='))
-        print(''.center(79, '-'))
+        print('Aleksandr Suvorov | myhackband@ya.ru'.center(COLUMNS, '-'))
+        print('Автонастройка дистрибутивов Linux после установки'.center(COLUMNS, '='))
+        print(''.center(COLUMNS, '-'))
         func()
-        print(''.center(79, '='))
-        print('Программа завершена'.center(79, '-'))
+        print(''.center(COLUMNS, '='))
+        print('Программа завершена'.center(COLUMNS, '-'))
 
     return deco
 
@@ -112,37 +116,37 @@ def make_json_obj_dict(json_list):
 def command_installer(command_list):
     for fix in command_list:
         print(f'Выполняем: {fix}')
-        print(''.center(79, '='))
+        print(''.center(COLUMNS, '='))
         os.system(fix)
 
 
 def pack_man_installer(app_list, command):
     for app in app_list:
         print(f'Выполняем: {command} {app}')
-        print(''.center(79, '='))
+        print(''.center(COLUMNS, '='))
         os.system(f'{command} {app}')
 
 
 def edit_configuration_files(fix_obj):
     for file_name, fix in fix_obj.file_fix_dict.items():
-        print(f'Редактируем файл: {file_name}'.center(79, '-'))
+        print(f'Редактируем файл: {file_name}'.center(COLUMNS, '-'))
         print(f'Вносим изменения: {fix}')
-        print(''.center(79, '='))
+        print(''.center(COLUMNS, '='))
         os.system(f'{fix_obj.file_fixer} {fix} >> {file_name}')
 
 
 def installer(fix_obj):
-    print(f'Выполняем начальные команды'.center(79, '='))
+    print(f'Выполняем начальные команды'.center(COLUMNS, '='))
     command_installer(fix_obj.pre_install_list)
-    print(f'Выполняем установку используя {fix_obj.pack_man}'.center(79, '='))
+    print(f'Выполняем установку используя {fix_obj.pack_man}'.center(COLUMNS, '='))
     pack_man_installer(fix_obj.pack_man_command_list, fix_obj.pack_man)
-    print(f'Выполняем установку используя {fix_obj.pip_man}'.center(79, '='))
+    print(f'Выполняем установку используя {fix_obj.pip_man}'.center(COLUMNS, '='))
     pack_man_installer(fix_obj.pip_command_list, fix_obj.pip_man)
-    print(f'Выполняем установку используя {fix_obj.snap_man}'.center(79, '='))
+    print(f'Выполняем установку используя {fix_obj.snap_man}'.center(COLUMNS, '='))
     pack_man_installer(fix_obj.snap_command_list, fix_obj.snap_man)
-    print(f'Работаем с файлами'.center(79, '='))
+    print(f'Работаем с файлами'.center(COLUMNS, '='))
     edit_configuration_files(fix_obj)
-    print(f'Выполняем завершающие команды'.center(79, '='))
+    print(f'Выполняем завершающие команды'.center(COLUMNS, '='))
     command_installer(fix_obj.post_command_list)
 
 
@@ -151,21 +155,21 @@ def main():
     json_file_dict = get_json_file_list()
     if json_file_dict:
         while True:
-            print('Найдены файлы конфигураций'.center(79, '='))
+            print('Найдены файлы конфигураций'.center(COLUMNS, '='))
             for number, value in json_file_dict.items():
                 print(f'{number}. {Path(value).name}')
-            print(''.center(79, '='))
+            print(''.center(COLUMNS, '='))
             user_input = int(input('Введите номер нужного файла конфиграции и нажмите ENTER: '))
             fix_obj = FixObj(json_file_dict[user_input])
-            print(''.center(79, '-'))
+            print(''.center(COLUMNS, '-'))
             print(f'Внимание! Будет применен фикс для {fix_obj.fix_name} из файла: {fix_obj.file_name}')
-            print(''.center(79, '-'))
+            print(''.center(COLUMNS, '-'))
             user_input = input('ENTER для продолжения, 0 + ENTER для возврата к выбору: ')
             if user_input:
-                print(''.center(79, '-'))
+                print(''.center(COLUMNS, '-'))
                 continue
             else:
-                print('Начинаем работу'.center(79, '='))
+                print('Начинаем работу'.center(COLUMNS, '='))
                 installer(fix_obj=fix_obj)
             break
     else:
