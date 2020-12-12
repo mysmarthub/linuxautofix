@@ -4,12 +4,33 @@ Linux Auto Fix
 
 >Console utility for auto configuration of Linux distributions after installation
 
+> Attention!
+> Be very careful with the commands you pass to the program.
+> The author of the program does not bear any responsibility for your actions, but
+> provides only an automated shell for executing commands on your system.
+
 Installation and launch:
 ---
 
 `pip install linuxautofix`
 
-`autofix [optional parameters with paths to files or settings folders]`
+`linuxautofix [optional parameters with paths to files or settings folders]`
+
+    To write to some files, you may need to run as administrator.
+    You can set like this:
+
+`sudo pip install linuxautofix`
+
+`sudo pip3 install linuxautofix`
+
+    Run like this:
+
+`sudo linuxautofix [optional parameters with paths to files or settings folders]`
+
+    Or so:
+
+`sudo python autofix.py [optional parameters with paths to files or settings folders]`
+
 
 ---
 [GitHub](https://github.com/mysmarthub/linuxautofix) / [PyPi](https://pypi.org/project/linuxautofix/)

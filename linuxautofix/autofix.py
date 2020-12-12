@@ -16,10 +16,6 @@ from pathlib import Path
 COLUMNS, _ = shutil.get_terminal_size()
 
 
-def get_absolute_file_path(path):
-    return f'{Path(__file__).resolve().parent}/{path}'
-
-
 class FixObj:
 
     def __init__(self, json_file):
@@ -99,11 +95,12 @@ def pack_man_installer(app_list, command):
 
 
 def edit_configuration_files(fix_obj):
-    for file_name, fix in fix_obj.file_fix_dict.items():
+    for file_name, fix_list in fix_obj.file_fix_dict.items():
         print(f'Editing the file: {file_name}'.center(COLUMNS, '-'))
-        print(f'Making changes: {fix}')
-        print(''.center(COLUMNS, '='))
-        os.system(f'{fix_obj.file_fixer} {fix} >> {file_name}')
+        for fix in fix_list:
+            print(f'Making changes: {fix}')
+            print(''.center(COLUMNS, '='))
+            os.system(f'{fix_obj.file_fixer} {fix} >> {file_name}')
 
 
 def installer(fix_obj):
@@ -169,7 +166,15 @@ def main(json_file_dict):
             for number, value in json_file_dict.items():
                 print(f'{number}. {Path(value).name}')
             print(''.center(COLUMNS, '='))
-            user_input = int(input('Enter the desired config file number and press ENTER: '))
+            try:
+                user_input = int(input('Enter the desired config file number and press ENTER: '))
+                if user_input not in [key for key in json_file_dict.keys()]:
+                    raise KeyError
+            except (ValueError, KeyError):
+                print(''.center(COLUMNS, '='))
+                print('\nError! Enter the desired config file number and press ENTER.\n')
+                print(''.center(COLUMNS, '='))
+                continue
             fix_obj = FixObj(json_file_dict[user_input])
             print(''.center(COLUMNS, '-'))
             print(f'Attention! Fix will be applied for {fix_obj.fix_name} from file: {fix_obj.file_name}')

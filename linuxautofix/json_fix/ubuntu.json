@@ -1,7 +1,7 @@
 {
   "options": {
     "name": "Ubuntu, Kubuntu, Linux Mint",
-    "pack_man": "sudo apt -y install",
+    "pack_man": "sudo apt-get -y install",
     "pip_man": "pip3 install",
     "snap_man": "sudo snap install",
     "file_fixer": "sudo echo"
@@ -34,7 +34,6 @@
     ]
   },
   "file_fix": {
-    "fix": {
       "/etc/default/grub": [
         "GRUB_TIMEOUT=30", "GRUB_GFXMODE=1280x1024"
       ],
@@ -47,11 +46,10 @@
       "/etc/sysctl.conf": [
         "vm.swappiness=0", "vm.vfs_cache_pressure = 1000"
       ]
-    }
   },
   "post_install": [
     "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common",
-    "sudo apt install curl",
+    "sudo apt-get install -y curl",
     "systemctl daemon-reload",
     "sudo ufw enable",
     "sudo ufw default deny",
