@@ -7,7 +7,8 @@
     "file_fixer": "sudo echo"
   },
   "pre_install": [
-    "sudo apt update"
+    "sudo apt update",
+    "sudo touch .gitconfig"
   ],
   "install": {
     "pack_man": [
@@ -34,6 +35,9 @@
   },
   "file_fix": {
     "fix": {
+      "/etc/default/grub": [
+        "GRUB_TIMEOUT=30", "GRUB_GFXMODE=1280x1024"
+      ],
       "/etc/systemd/system.conf": [
         "DefaultTimeoutStopSec=10s"
       ],
@@ -48,13 +52,13 @@
   "post_install": [
     "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common",
     "sudo apt install curl",
-    "sudo update-grub",
     "systemctl daemon-reload",
     "sudo ufw enable",
     "sudo ufw default deny",
     "sudo ufw deny ssh",
     "sudo ufw logging on",
     "sudo ufw status verbose",
+    "sudo update-grub",
     "sudo sysctl -p"
   ]
 }
