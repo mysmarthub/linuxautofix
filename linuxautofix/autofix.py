@@ -88,14 +88,14 @@ def command_installer(command_list):
     for fix in command_list:
         print(f'\n\nPerformed: {fix}')
         print(''.center(COLUMNS, '='))
-        # os.system(fix)
+        os.system(fix)
 
 
 def pack_man_installer(app_list, command):
     for app in app_list:
         print(f'\n\nPerformed: {command} {app}')
         print(''.center(COLUMNS, '='))
-        # os.system(f'{command} {app}')
+        os.system(f'{command} {app}')
 
 
 def edit_configuration_files(fix_obj):
@@ -103,7 +103,7 @@ def edit_configuration_files(fix_obj):
         print(f'Editing the file: {file_name}'.center(COLUMNS, '-'))
         print(f'Making changes: {fix}')
         print(''.center(COLUMNS, '='))
-        # os.system(f'{fix_obj.file_fixer} {fix} >> {file_name}')
+        os.system(f'{fix_obj.file_fixer} {fix} >> {file_name}')
 
 
 def installer(fix_obj):
@@ -184,6 +184,11 @@ def main(json_file_dict):
             break
     else:
         print('Error! No config files found...')
+        print('To use configuration files, add them to the folder "json_fix",\n '
+              'or pass the absolute path to the file / files folder / config folders on startup.')
+        print('Launch example:\n')
+        print('autofixlinux /path /path/file.json')
+        print('python autofix /path /path/file.json')
 
 
 if __name__ == '__main__':

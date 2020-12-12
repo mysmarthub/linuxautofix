@@ -1,0 +1,5 @@
+include LICENSE.txt
+include README.txt
+include requirements.txt
+include linuxautofix/json_fix/fedora.json
+include linuxautofix/json_fix/ubuntu.json

@@ -1,3 +1,5 @@
 # Project exclude paths
 /venv/
 .idea
+/dist
+/linuxautofix.egg-info
