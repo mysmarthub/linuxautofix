@@ -1,6 +1,6 @@
 {
   "options": {
-    "name": "Ubuntu, Kubuntu, Linux Mint",
+    "name": "Ubuntu, Kubuntu, Linux Mint, Mx Linux",
     "pack_man": "sudo apt-get -y install",
     "pip_man": "pip3 install",
     "snap_man": "sudo snap install",
@@ -12,8 +12,11 @@
   ],
   "install": {
     "pack_man": [
+      "python",
+      "python-pip",
       "python3-pip",
       "python3-dev",
+      "python-setuptools",
       "python3-setuptools",
       "git",
       "htop",
@@ -48,6 +51,7 @@
       ]
   },
   "post_install": [
+    "python3 -m pip install --user --upgrade setuptools wheel",
     "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common",
     "sudo apt-get install -y curl",
     "systemctl daemon-reload",
