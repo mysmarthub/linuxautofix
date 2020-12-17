@@ -30,7 +30,8 @@
       "httpie"
     ],
     "pip_man": [
-      "virtualenv"
+      "virtualenv",
+      "wheel"
     ],
     "snap_man": [
       "docker"

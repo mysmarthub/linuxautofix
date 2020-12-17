@@ -111,7 +111,7 @@ info:
 
 Support:
 ---
-    Author: Aleksandr Suvorov
+    Created: Aleksandr Suvorov
     Email: myhackband@yandex.ru
 
 Help the project financially:

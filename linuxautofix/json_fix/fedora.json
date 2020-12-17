@@ -31,7 +31,8 @@
       "compat-ffmpeg28"
     ],
     "pip_man": [
-      "virtualenv"
+      "virtualenv",
+      "wheel"
     ],
     "snap_man": [
 
