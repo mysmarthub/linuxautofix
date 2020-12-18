@@ -32,6 +32,13 @@ Description
 > if the file is not found or another error occurs, 
 > the default settings file will be used(if you have one), 
 > this file must be located in the same folder as the program being run.
+>
+> Build your own commands for different Linux systems, 
+> to automate command execution, 
+> or to auto-configure different systems after installation. 
+> Keep commands for different systems in the same file, 
+> add, modify, and delete commands as needed.
+
 ---
 
 Help:
@@ -133,7 +140,7 @@ the structure from the default file.
     "sudo update-grub",
     "sudo sysctl -p"
   ],
-  "fedora": [
+  "Fedora": [
     "sudo dnf update",
     "sudo dnf groupupdate multimedia sound-and-video",
     "sudo rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm",

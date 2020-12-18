@@ -44,7 +44,7 @@
     "sudo update-grub",
     "sudo sysctl -p"
   ],
-  "fedora": [
+  "Fedora": [
     "sudo dnf update",
     "sudo dnf groupupdate multimedia sound-and-video",
     "sudo rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm",
