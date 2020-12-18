@@ -32,7 +32,6 @@ def open_json(file):
 def execute_the_command(command: str):
     if type(command) is str:
         status = os.system(command)
-        print(status)
         if not status:
             return True
     return False
@@ -91,7 +90,9 @@ def start(conf_dict):
             elif user_input == 2:
                 for fix in fix_list:
                     print(fix)
+                continue
             break
+        break
 
 
 def createParser():
