@@ -6,197 +6,152 @@
 # (see LICENSE.txt for details)
 # -----------------------------------------------------------------------------
 """Program for auto-tuning Linux distributions after installation"""
-import json
+import argparse
+import inspect
 import os
-import sys
 import shutil
+import json
 from pathlib import Path
 
-
 COLUMNS, _ = shutil.get_terminal_size()
+VERSION = '0.0.5'
 
 
-class FixObj:
-
-    def __init__(self, json_file):
-        self.__json_file = json_file
-        self.__data = self.__json_data()
-
-    @property
-    def fix_name(self):
-        return self.__data["options"]["name"]
-
-    @property
-    def file_name(self):
-        return Path(self.__json_file).name
-
-    def __json_data(self):
-        with open(self.__json_file, 'r') as f:
-            data = json.load(f)
-        return data
-
-    @property
-    def pack_man(self):
-        return self.__data["options"]["pack_man"]
-
-    @property
-    def pip_man(self):
-        return self.__data["options"]["pip_man"]
-
-    @property
-    def snap_man(self):
-        return self.__data["options"]["snap_man"]
-
-    @property
-    def file_fixer(self):
-        return self.__data["options"]["file_fixer"]
-
-    @property
-    def pre_install_list(self):
-        return self.__data["pre_install"]
-
-    @property
-    def pack_man_command_list(self):
-        return self.__data["install"]["pack_man"]
-
-    @property
-    def pip_command_list(self):
-        return self.__data["install"]["pip_man"]
-
-    @property
-    def snap_command_list(self):
-        return self.__data["install"]["snap_man"]
-
-    @property
-    def file_fix_dict(self):
-        return self.__data["file_fix"]
-
-    @property
-    def post_command_list(self):
-        return self.__data["post_install"]
+def check_path(path):
+    if type(path) is str and Path(path).exists() and Path(path).suffix == '.json':
+        return True
+    return False
 
 
-def make_json_obj_dict(json_list):
-    return {n: obj for n, obj in enumerate([FixObj(file) for file in json_list], 1)}
+def open_json(file):
+    with open(file, 'r') as f:
+        json_data = json.load(f)
+    return json_data
 
 
-def command_installer(command_list):
-    for fix in command_list:
-        print(f'\n\nPerformed: {fix}')
-        print(''.center(COLUMNS, '='))
-        os.system(fix)
+def execute_the_command(command: str):
+    if type(command) is str:
+        status = os.system(command)
+        print(status)
+        if not status:
+            return True
+    return False
 
 
-def pack_man_installer(app_list, command):
-    for app in app_list:
-        print(f'\n\nPerformed: {command} {app}')
-        print(''.center(COLUMNS, '='))
-        os.system(f'{command} {app}')
+def menu(conf_dict):
+    print(''.center(COLUMNS, '*'))
+    print('Configuration Settings'.center(COLUMNS, '='))
+    print(''.center(COLUMNS, '-'))
+    for n, val in conf_dict.items():
+        print(f'{n}: {val[0]}')
+    print(''.center(COLUMNS, '-'))
 
 
-def edit_configuration_files(fix_obj):
-    for file_name, fix_list in fix_obj.file_fix_dict.items():
-        print(f'Editing the file: {file_name}'.center(COLUMNS, '-'))
-        for fix in fix_list:
-            print(f'Making changes: {fix}')
-            print(''.center(COLUMNS, '='))
-            os.system(f'{fix_obj.file_fixer} {fix} >> {file_name}')
+def get_input():
+    while True:
+        try:
+            user_input = int(input('Enter the command, to exit, enter 0: '))
+        except ValueError:
+            print('Input Error!')
+            continue
+        else:
+            return user_input
 
 
-def installer(fix_obj):
-    msg = 'We carry out the installation using'
-    print(f'We execute the initial commands'.center(COLUMNS, '='))
-    command_installer(fix_obj.pre_install_list)
-    print(f'{msg} {fix_obj.pack_man}'.center(COLUMNS, '='))
-    pack_man_installer(fix_obj.pack_man_command_list, fix_obj.pack_man)
-    print(f'{msg} {fix_obj.pip_man}'.center(COLUMNS, '='))
-    pack_man_installer(fix_obj.pip_command_list, fix_obj.pip_man)
-    print(f'{msg} {fix_obj.snap_man}'.center(COLUMNS, '='))
-    pack_man_installer(fix_obj.snap_command_list, fix_obj.snap_man)
-    print(f'Working with files'.center(COLUMNS, '='))
-    edit_configuration_files(fix_obj)
-    print(f'Executing the final commands'.center(COLUMNS, '='))
-    command_installer(fix_obj.post_command_list)
+def start(conf_dict):
+    while True:
+        menu(conf_dict)
+        conf_number = get_input()
+        if not conf_number:
+            print('Getting out...')
+            break
+        if conf_number not in conf_dict.keys():
+            print('Invalid input!!!')
+            continue
+        fix_name, fix_list = conf_dict[conf_number]
+        while True:
+            print(f'Selected {fix_name}'.center(COLUMNS, '='))
+            print(''.center(COLUMNS, '-'))
+            print(f'1 - Start\n'
+                  f'2 - Info\n'
+                  f'0 - Cancel\n')
+            user_input = get_input()
+            if user_input == 1:
+                for fix in fix_list:
+                    print('\n')
+                    print(f'Execute: {fix}'.center(COLUMNS, '-'))
+                    print(f'[Execute]: {fix}')
+                    print(f'Execute: {fix}'.center(COLUMNS, '-'))
+                    status = execute_the_command(fix)
+                    print(''.center(COLUMNS, '-'))
+                    if status:
+                        print('Successfully!')
+                    else:
+                        print('Error! Command not executed!')
+            elif user_input == 2:
+                for fix in fix_list:
+                    print(fix)
+            break
 
 
-def get_json_file_dict(json_file_list) -> dict:
-    return {n: path for n, path in enumerate(json_file_list, 1)}
+def createParser():
+    parser = argparse.ArgumentParser(
+        description='Program for auto-tuning Linux distributions after installation',
+        prog=f'Linux Auto Fix v{VERSION}',
+        epilog="""The configuration file must be a file in the format 
+        .json and have the correct settings""",
+    )
+    parser.add_argument('path', nargs='?', help='Путь к файлу с настройками', default=False)
+    parser.add_argument('--version',
+                        action='version',
+                        help='Program version',
+                        version='%(prog)s {}'.format(VERSION))
+    return parser
 
 
-def get_json_files(path):
-    file_list = []
-    for p, _, f in os.walk(path):
-        for file in f:
-            if Path(file).suffix == '.json':
-                file_list.append(os.path.join(p, file))
-    return file_list
-
-
-def get_args():
-    file_list = []
-    if len(sys.argv) > 1:
-        for path in sys.argv[1:]:
-            if Path(path).is_file() and Path(path).suffix == '.json':
-                file_list.append(path)
-            else:
-                file_list.extend(get_json_files(path))
-        return file_list
+def logo(func):
+    parser = createParser()
+    namespace = parser.parse_args()
+    print(namespace)
+    if namespace.path:
+        path = namespace.path
     else:
-        return [file for file in get_json_files(f'{Path(__file__).parent.absolute()}/json_fix/')]
+        filename = inspect.getframeinfo(inspect.currentframe()).filename
+        path = os.path.dirname(os.path.abspath(filename))
+        path = f'{path}/config.json'
 
-
-def logo_dec(func):
     def deco():
+        print(''.center(COLUMNS, '*'))
         print('Linux Auto Fix'.center(COLUMNS, '='))
         print('Aleksandr Suvorov | myhackband@ya.ru'.center(COLUMNS, '-'))
         print('Program for auto-tuning Linux distributions after installation'.center(COLUMNS, '='))
-        json_file_set = set(get_args())
-        json_file_dict = get_json_file_dict(json_file_set)
-        func(json_file_dict)
+        if path:
+            func(path)
+        else:
+            parser.print_help()
         print(''.center(COLUMNS, '='))
         print('Program completed'.center(COLUMNS, '-'))
     return deco
 
 
-@logo_dec
-def main(json_file_dict):
-    if json_file_dict:
-        while True:
-            print('Configuration files found: ')
-            for number, value in json_file_dict.items():
-                print(f'{number}. {Path(value).name}')
-            print(''.center(COLUMNS, '='))
-            try:
-                user_input = int(input('Enter the desired config file number and press ENTER: '))
-                if user_input not in [key for key in json_file_dict.keys()]:
-                    raise KeyError
-            except (ValueError, KeyError):
-                print(''.center(COLUMNS, '='))
-                print('\nError! Enter the desired config file number and press ENTER.\n')
-                print(''.center(COLUMNS, '='))
-                continue
-            fix_obj = FixObj(json_file_dict[user_input])
+@logo
+def main(path):
+    if check_path(path):
+        try:
+            config = open_json(path)
+        except json.decoder.JSONDecodeError as err:
             print(''.center(COLUMNS, '-'))
-            print(f'Attention! Fix will be applied for {fix_obj.fix_name} from file: {fix_obj.file_name}')
-            print(''.center(COLUMNS, '-'))
-            user_input = input('ENTER to continue, 0 + ENTER to return to selection: ')
-            if user_input:
-                print(''.center(COLUMNS, '-'))
-                continue
+            print('Error in the configuration file!!!')
+            print(f'Error: {err}')
+        else:
+            config_dict = {n: name for n, name in enumerate(config.items(), 1)}
+            if config_dict:
+                start(config_dict)
             else:
-                print('Getting started'.center(COLUMNS, '='))
-                installer(fix_obj=fix_obj)
-            break
+                print('Settings not found!')
     else:
-        print('Error! No config files found...')
-        print('To use configuration files, add them to the folder "json_fix",\n '
-              'or pass the absolute path to the file / files folder / config folders on startup.')
-        print('Launch example:\n')
-        print('autofixlinux /path /path/file.json')
-        print('python autofix /path /path/file.json')
+        print('Error! The path does not exist!')
 
 
 if __name__ == '__main__':
-    files = get_args()
-    print(files)
     main()

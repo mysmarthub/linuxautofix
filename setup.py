@@ -35,6 +35,7 @@ KEYWORDS = [
     'fix fedora',
     'fix linux mint',
     'aleksandr suvorov',
+    'linux auto fix',
 ]
 setup(
     name=NAME,
