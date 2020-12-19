@@ -4,11 +4,14 @@ Linux Auto Fix
     Created: Aleksandr Suvorov
 ---
 [![PyPI](https://img.shields.io/pypi/v/linuxautofix)](https://pypi.org/project/linuxautofix) 
-![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxautofix) 
+![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxautofix)
+![GitHub all releases](https://img.shields.io/github/downloads/mysmarthub/linuxautofix/total)
 ![GitHub](https://img.shields.io/github/license/mysmarthub/linuxautofix)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/mysmarthub/linuxautofix)
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/linuxautofix)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mysmarthub/linuxautofix)
+![GitHub repo size](https://img.shields.io/github/repo-size/mysmarthub/linuxautofix)
+![GitHub Org's stars](https://img.shields.io/github/stars/mysmarthub?style=social)
 >Console utility for auto-configuration of Linux distributions after installation
 ---
 
