@@ -23,11 +23,21 @@ URL = "https://github.com/mysmarthub/linuxautofix"
 LICENSE = 'MIT'
 LONG_DESCRIPTION = open(join(dirname(__file__), 'README.md')).read()
 INSTALL_REQUIRES = []
-PLATFORM = ['Linux']
+PLATFORM = ['Linux', 'Windows']
 CLASSIFIERS = [
-    "Programming Language :: Python :: 3",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: System Administrators",
     "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
     "Operating System :: OS Independent",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities"
 ]
 KEYWORDS = [
     'linuxautofix',

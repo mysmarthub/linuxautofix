@@ -14,7 +14,7 @@ import json
 from pathlib import Path
 
 COLUMNS, _ = shutil.get_terminal_size()
-VERSION = '0.0.5'
+VERSION = '0.0.6'
 
 
 def check_path(path):
@@ -98,15 +98,15 @@ def start(conf_dict):
 def createParser():
     parser = argparse.ArgumentParser(
         description='Program for auto-tuning Linux distributions after installation',
-        prog=f'Linux Auto Fix v{VERSION}',
+        prog=f'Linux Auto Fix',
         epilog="""The configuration file must be a file in the format 
         .json and have the correct settings""",
     )
-    parser.add_argument('path', nargs='?', help='Путь к файлу с настройками', default=False)
-    parser.add_argument('--version',
+    parser.add_argument('path', nargs='?', help='File path with settings', default=False)
+    parser.add_argument('--v', '--version',
                         action='version',
                         help='Program version',
-                        version='%(prog)s {}'.format(VERSION))
+                        version='%(prog)s v{}'.format(VERSION))
     return parser
 
 

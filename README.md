@@ -9,35 +9,34 @@ Linux Auto Fix
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/mysmarthub/linuxautofix)
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/linuxautofix)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mysmarthub/linuxautofix)
->Console utility for auto configuration of Linux distributions after installation
+>Console utility for auto-configuration of Linux distributions after installation
 ---
 
 Description
 ---
 
->With this utility, you can automate the execution 
-> of commands on a Linux system. Create your own file 
-> with settings, add the necessary commands to it 
-> and start automatic execution when it is necessary.
+>With this utility, you can automate
+the execution of commands on a Linux system.
+Create a settings file with the necessary items,
+in each item, collect the necessary commands,
+and start their automatic execution when necessary.
 
-> With this utility, it is very convenient to 
-> perform routine tasks, as well as to configure 
-> and install the system after installation.
-> 
-> The settings file is very simple, suitable 
-> even for the most ordinary users.
+>With this utility, it is very convenient 
+to perform routine tasks , as well as configure 
+and install the system after installation.
 
-> When you run the utility on the command line, 
-> the path to the settings file is passed to it as an argument, 
-> if the file is not found or another error occurs, 
-> the default settings file will be used(if you have one), 
-> this file must be located in the same folder as the program being run.
->
-> Build your own commands for different Linux systems, 
-> to automate command execution, 
-> or to auto-configure different systems after installation. 
-> Keep commands for different systems in the same file, 
-> add, modify, and delete commands as needed.
+>The settings file is very simple and clear, 
+and all the commands you need for different 
+cases or different systems will be stored in one place.
+
+>You can create your own files with settings 
+or edit the default settings file, 
+just specify the path to your file when running the script.
+
+>After starting, the program will prompt you to 
+select the desired item, and then execute all the 
+commands that are stored in the file with the 
+settings under this name.
 
 ---
 
@@ -75,24 +74,24 @@ Installation and launch:
 
 `linuxautofix`
 
-`linuxautofix [path]`
+`linuxautofix /path to the settings file/config.json`
 
 >On some systems, some commands require administrator rights, 
 > so you can install the utility and run it further using:
 
 `sudo pip install linuxautofix`
 
-`sudo linuxautofix`
+`sudo linuxautofix /path to the settings file/config.json`
 
 >You can download the source files and run them using Python:
 
 ```
 git clone https://github.com/mysmarthub/linuxautofix.git
-python linuxautofix/linuxautofix/autofix.py
+python linuxautofix/linuxautofix/autofix.py /path to the settings file/config.json
  
  or
 
-sudo python linuxautofix/linuxautofix/autofix.py
+sudo python linuxautofix/linuxautofix/autofix.py /path to the settings file/config.json
 ```
 ---
 
@@ -114,88 +113,13 @@ the structure from the default file.
 
 ```json
 {
-  "ubuntu": [
-    "sudo apt update",
-    "sudo touch .gitconfig",
-    "sudo apt-get install python",
-    "pip3 install mycleaner",
-    "pip3 install smartcleaner",
-    "pip3 install sfd",
-    "pip3 install mpassgen",
-    "sudo echo GRUB_TIMEOUT=30 >> /etc/default/grub",
-    "sudo echo GRUB_GFXMODE=1280x1024 >> /etc/default/grub",
-    "sudo echo DefaultTimeoutStopSec=10s >> /etc/systemd/system.conf",
-    "sudo echo ENABLED=yes >> /etc/default/ufw",
-    "sudo echo vm.swappiness=0 >> /etc/sysctl.conf",
-    "sudo echo vm.vfs_cache_pressure = 1000 >> /etc/sysctl.conf",
-    "python3 -m pip install --user --upgrade setuptools wheel",
-    "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common",
-    "sudo apt-get install -y curl",
-    "systemctl daemon-reload",
-    "sudo ufw enable",
-    "sudo ufw default deny",
-    "sudo ufw deny ssh",
-    "sudo ufw logging on",
-    "sudo ufw status verbose",
-    "sudo update-grub",
-    "sudo sysctl -p"
+  "Name to be displayed in the list of commands": [
+    "command one",
+    "command two"
   ],
-  "Fedora": [
-    "sudo dnf update",
-    "sudo dnf groupupdate multimedia sound-and-video",
-    "sudo rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm",
-    "sudo rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm",
-    "sudo dnf install python",
-    "sudo dnf install python3",
-    "sudo dnf install git",
-    "sudo dnf install htop",
-    "sudo dnf install twine",
-    "sudo dnf install tree",
-    "sudo dnf install mc",
-    "sudo dnf install cmatrix",
-    "sudo dnf install vlc",
-    "sudo dnf install gstreamer1-libav",
-    "sudo dnf install gstreamer1-plugins-bad-free",
-    "sudo dnf install gstreamer1-plugins-bad-free-extras",
-    "sudo dnf install gstreamer1-plugins-bad-freeworld",
-    "sudo dnf install gstreamer1-plugins-bad-nonfree",
-    "sudo dnf install gstreamer1-plugins-good gstreamer1-plugins-ugly",
-    "sudo dnf install lame-libs",
-    "sudo dnf install ffmpeg-libs",
-    "sudo dnf install compat-ffmpeg28",
-    "pip install virtualenv",
-    "pip install wheel",
-    "pip install mycleaner",
-    "pip install smartcleaner",
-    "pip install sfd",
-    "pip install mpassgen"
-  ],
-  "Manjaro": [
-    "pacman-mirrors --fasttrack",
-    "pacman -Syyu",
-    "pacman -Sy cmatrix",
-    "pacman -Sy git",
-    "pacman -Sy htop",
-    "pacman -Sy twine",
-    "pacman -Sy tree",
-    "pacman -Sy mc",
-    "pacman -Sy vlc",
-    "pip install virtualenv",
-    "pip install wheel",
-    "pip install mycleaner",
-    "pip install smartcleaner",
-    "pip install sfd",
-    "pip install mpassgen",
-    "sudo echo GRUB_TIMEOUT=30 >> /etc/default/grub",
-    "sudo echo GRUB_GFXMODE=1280x1024 >> /etc/default/grub",
-    "sudo echo ENABLED=yes >> /etc/default/ufw",
-    "sudo ufw enable",
-    "sudo ufw default deny",
-    "sudo ufw deny ssh",
-    "sudo ufw logging on",
-    "sudo ufw status verbose",
-    "sudo update-grub",
-    "sudo sysctl -p"
+  "Next name": [
+    "command one",
+    "command two"
   ]
 }
 ```
