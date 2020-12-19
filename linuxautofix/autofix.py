@@ -42,7 +42,9 @@ def menu(conf_dict):
     print('Configuration Settings'.center(COLUMNS, '='))
     print(''.center(COLUMNS, '-'))
     for n, val in conf_dict.items():
-        print(f'{n}: {val[0]}')
+        name = val[0]
+        command_list = val[1]
+        print(f'{n}: {name} | commands: [{len(command_list)}]')
     print(''.center(COLUMNS, '-'))
 
 
@@ -72,8 +74,9 @@ def start(conf_dict):
             print(f'Selected {fix_name}'.center(COLUMNS, '='))
             print(''.center(COLUMNS, '-'))
             print(f'1 - Start\n'
-                  f'2 - Info\n'
-                  f'0 - Cancel\n')
+                  f'2 - List of commands\n'
+                  f'0 - Cancel')
+            print(''.center(COLUMNS, '-'))
             user_input = get_input()
             if user_input == 1:
                 for fix in fix_list:
@@ -87,12 +90,12 @@ def start(conf_dict):
                         print('Successfully!')
                     else:
                         print('Error! Command not executed!')
+                break
             elif user_input == 2:
                 for fix in fix_list:
                     print(fix)
                 continue
             break
-        break
 
 
 def createParser():
