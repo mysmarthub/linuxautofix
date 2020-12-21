@@ -23,6 +23,10 @@ Linux Auto Fix
 
 ---
 
+![Linux Auto Fix](https://github.com/mysmarthub/linuxautofix/raw/master/images/logo.png)
+
+---
+
 Help the project financially:
 ---
 >Yandex Money:
