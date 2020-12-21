@@ -1,7 +1,11 @@
 Linux Auto Fix
 ===
----
-    Created: Aleksandr Suvorov
+    
+    Console utility for auto-configuration of Linux distributions after installation
+    
+    
+
+>Created: Aleksandr Suvorov
 ---
 [![PyPI](https://img.shields.io/pypi/v/linuxautofix)](https://pypi.org/project/linuxautofix) 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxautofix)
@@ -11,17 +15,34 @@ Linux Auto Fix
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/linuxautofix)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mysmarthub/linuxautofix)
 ![GitHub repo size](https://img.shields.io/github/repo-size/mysmarthub/linuxautofix)
-![GitHub Org's stars](https://img.shields.io/github/stars/mysmarthub?style=social)
->Console utility for auto-configuration of Linux distributions after installation
+![GitHub Repo stars](https://img.shields.io/github/stars/mysmarthub/linuxautofix?style=social)
+---
+[![Download Linux Auto Fix](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/linuxautofix/files/latest/download)
+
+[![Download Linux Auto Fix](https://img.shields.io/sourceforge/dt/linuxautofix.svg)](https://sourceforge.net/projects/linuxautofix/files/latest/download)
+
+---
+
+Help the project financially:
+---
+>Yandex Money:
+https://yoomoney.ru/to/4100115206129186
+
+    Visa:    4048 4150 0400 5852
+
+    Sberbank Russia: 4276 4417 5763 7686
+
+https://paypal.me/myhackband
+
 ---
 
 Description
 ---
-
 >With this utility, you can automate
 the execution of commands on a Linux system.
 Create a settings file with the necessary items,
-in each item, collect the necessary commands,
+or use/edit the default file.
+In each item, collect the necessary commands,
 and start their automatic execution when necessary.
 
 >With this utility, it is very convenient 
@@ -32,14 +53,39 @@ and install the system after installation.
 and all the commands you need for different 
 cases or different systems will be stored in one place.
 
->You can create your own files with settings 
-or edit the default settings file, 
-just specify the path to your file when running the script.
+>In the settings file, a section with a special 
+name default is available, 
+any commands added to this section 
+will be executed by default after the 
+main commands are executed.
 
->After starting, the program will prompt you to 
-select the desired item, and then execute all the 
-commands that are stored in the file with the 
-settings under this name.
+>You can create your own files with settings
+or edit the default settings file. 
+If you have created your own settings file, 
+just specify the full path to this file when 
+running the script as a parameter. 
+Keep in mind that at the moment the file 
+must be in json format, have this file extension, 
+and use the required structure:
+
+>The section with the "default" commands will run anyway.
+
+```json
+{
+  "Name to be displayed in the list of commands": [
+    "command one",
+    "command two"
+  ],
+  "Next name": [
+    "command one",
+    "command two"
+  ],
+  "default": [
+    "command one",
+    "command two"
+  ]
+}
+```
 
 ---
 
@@ -47,7 +93,7 @@ Help:
 ----
 
 ```
-usage: Linux Auto Fix v0.0.5 [-h] [--version] [path]
+usage: Linux Auto Fix v0.0.7 [-h] [--version] [path]
 
 Program for auto-tuning Linux distributions after installation
 
@@ -63,10 +109,7 @@ format .json and have the correct settings
 
 ```
 
----
 
-Installation and launch:
----
     You can install the utility using pip:
 
 `pip install linuxautofix`
@@ -96,61 +139,27 @@ python linuxautofix/linuxautofix/autofix.py /path to the settings file/config.js
 
 sudo python linuxautofix/linuxautofix/autofix.py /path to the settings file/config.json
 ```
+
+Links:
+---
+>[GitHub](https://github.com/mysmarthub/linuxautofix)
+> 
+>[PyPi](https://pypi.org/project/linuxautofix/)
+> 
+>[Sourceforge](https://sourceforge.net/projects/linuxautofix/files/latest/download)
 ---
 
-Disclaimer
----
-
-> Attention!
-> Be very careful with the commands you pass to the program.
-> The author of the program does not bear any responsibility for your actions, but
-> provides only an automated shell for executing commands on your system.
-
----
-[GitHub](https://github.com/mysmarthub/linuxautofix) / [PyPi](https://pypi.org/project/linuxautofix/)
----
-
-
->When creating your own files, use
-the structure from the default file.
-
-```json
-{
-  "Name to be displayed in the list of commands": [
-    "command one",
-    "command two"
-  ],
-  "Next name": [
-    "command one",
-    "command two"
-  ]
-}
-```
-
-
-info:
----
-    Copyright © 2020 Aleksandr Suvorov
-    Licensed under the terms of the MIT License
----
+Disclaimer of liability:
+------------------------
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 Support:
 ---
-    Created: Aleksandr Suvorov
     Email: myhackband@yandex.ru
-
----
-
-Help the project financially:
----
->Yandex Money:
-https://money.yandex.ru/to/4100110928527458
-
->Sberbank Russia:
-4276 4417 5763 7686
-
----
-[![Download Linux Auto Fix](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/linuxautofix/files/latest/download)
-
----
-[![Download Linux Auto Fix](https://img.shields.io/sourceforge/dt/linuxautofix.svg)](https://sourceforge.net/projects/linuxautofix/files/latest/download)
+    Copyright © 2020 Aleksandr Suvorov

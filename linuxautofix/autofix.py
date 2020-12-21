@@ -14,7 +14,7 @@ import json
 from pathlib import Path
 
 COLUMNS, _ = shutil.get_terminal_size()
-VERSION = '0.0.6'
+VERSION = '0.0.7'
 
 
 def check_path(path):
@@ -51,7 +51,7 @@ def menu(conf_dict):
 def get_input():
     while True:
         try:
-            user_input = int(input('Enter the command, to exit, enter 0: '))
+            user_input = int(input('Enter the number to select, to exit enter 0: '))
         except ValueError:
             print('Input Error!')
             continue
@@ -70,6 +70,9 @@ def start(conf_dict):
             print('Invalid input!!!')
             continue
         fix_name, fix_list = conf_dict[conf_number]
+        if fix_name != 'default':
+            default_list = [v for val in conf_dict.values() if val[0] == 'default' for v in val[1]]
+            fix_list += default_list
         while True:
             print(f'Selected {fix_name}'.center(COLUMNS, '='))
             print(''.center(COLUMNS, '-'))
@@ -79,11 +82,12 @@ def start(conf_dict):
             print(''.center(COLUMNS, '-'))
             user_input = get_input()
             if user_input == 1:
+                count = 0
                 for fix in fix_list:
+                    count += 1
                     print('\n')
-                    print(f'Execute: {fix}'.center(COLUMNS, '-'))
+                    print(f'Execute {count}'.center(COLUMNS, '-'))
                     print(f'[Execute]: {fix}')
-                    print(f'Execute: {fix}'.center(COLUMNS, '-'))
                     status = execute_the_command(fix)
                     print(''.center(COLUMNS, '-'))
                     if status:
