@@ -7,15 +7,17 @@ Linux Auto Fix
 
 >Created: Aleksandr Suvorov
 ---
+
 [![PyPI](https://img.shields.io/pypi/v/linuxautofix)](https://pypi.org/project/linuxautofix) 
-![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxautofix)
-![GitHub all releases](https://img.shields.io/github/downloads/mysmarthub/linuxautofix/total)
-![GitHub](https://img.shields.io/github/license/mysmarthub/linuxautofix)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/mysmarthub/linuxautofix)
-![PyPI - Wheel](https://img.shields.io/pypi/wheel/linuxautofix)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mysmarthub/linuxautofix)
-![GitHub repo size](https://img.shields.io/github/repo-size/mysmarthub/linuxautofix)
-![GitHub Repo stars](https://img.shields.io/github/stars/mysmarthub/linuxautofix?style=social)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxautofix)](https://pypi.org/project/linuxautofix)
+[![PyPI - Wheel](https://img.shields.io/pypi/wheel/linuxautofix)](https://pypi.org/project/linuxautofix)
+[![GitHub all releases](https://img.shields.io/github/downloads/mysmarthub/linuxautofix/total)](https://github.com/mysmarthub/linuxautofix/)
+[![GitHub](https://img.shields.io/github/license/mysmarthub/linuxautofix)](https://github.com/mysmarthub/linuxautofix/)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/mysmarthub/linuxautofix)](https://github.com/mysmarthub/linuxautofix/)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mysmarthub/linuxautofix)](https://github.com/mysmarthub/linuxautofix/)
+[![GitHub repo size](https://img.shields.io/github/repo-size/mysmarthub/linuxautofix)](https://github.com/mysmarthub/linuxautofix/)
+[![GitHub Repo stars](https://img.shields.io/github/stars/mysmarthub/linuxautofix?style=social)](https://github.com/mysmarthub/linuxautofix/)
+
 ---
 [![Download Linux Auto Fix](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/linuxautofix/files/latest/download)
 
