@@ -16,8 +16,9 @@ PACKAGE = "linuxautofix"
 VERSION = __import__(PACKAGE).__version__
 AUTHOR = __import__(PACKAGE).__author__
 AUTHOR_EMAIL = "myhackband@yandex.ru"
-DESCRIPTION = "Program for auto-tuning Linux distributions after installation." \
-              " Aleksandr Suvorov | https://github.com/mysmarthub/ | Donate: 4276 4417 5763 7686"
+DESCRIPTION = "Linux Auto Fix - utility for automatic command execution, " \
+              "and auto-tuning Linux distributions after installation. | " \
+              "Aleksandr Suvorov | https://github.com/mysmarthub/ | Donate: 4048 4150 0400 5852, 4276 4417 5763 7686"
 NAME = "linuxautofix"
 URL = "https://github.com/mysmarthub/linuxautofix"
 LICENSE = 'MIT'
@@ -65,6 +66,6 @@ setup(
     keywords=KEYWORDS,
     entry_points={
         'console_scripts':
-            ['linuxautofix = linuxautofix.autofix:main']
+            ['linuxautofix = linuxautofix.linuxautofix:main']
         }
 )

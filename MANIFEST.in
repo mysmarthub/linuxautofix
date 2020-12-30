@@ -1,4 +1,4 @@
 include LICENSE.txt
 include README.txt
 include requirements.txt
-include linuxautofix/config.json
+include linuxautofix/default_pack.json
