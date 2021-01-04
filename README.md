@@ -6,6 +6,7 @@ and auto-tuning Linux distributions after installation
     
 
 >Created: Aleksandr Suvorov
+
 ---
 
 [![PyPI](https://img.shields.io/pypi/v/linuxautofix)](https://pypi.org/project/linuxautofix) 
@@ -45,26 +46,67 @@ https://paypal.me/myhackband
 Description
 ---
 
+>Store your frequently used commands in one place, edit, 
+> run, create new command packages, use the default 
+> command package to store common commands for different packages.
+
 >A project that gave rise to another interesting project. 
 > At first, Linux Auto Fix was used narrowly, 
 > to automate the execution of commands to configure the 
 > system after installation, but later developed 
 > into a more simplified project to automate the 
 > storage and execution of commands ["Commandoro"](https://github.com/mysmarthub/commandoro). 
-> In ["Commandoro"](https://github.com/mysmarthub/commandoro), there is also a graphical version of the 
+
+> In ["Commandoro"](https://github.com/mysmarthub/commandoro), 
+> there is also a graphical version of the 
 > program that allows you to execute command packages, 
 > create, modify, and update configuration files that 
 > can be used in both the console version and the graphical version.
->
-> The console version allows you to run a script in the terminal, passing it a file with settings as an argument, or use the default file. In the process, you select the desired command package, then you can start execution, display a list of commands for this package, or return to the selection of the command package. After executing all the commands, the program goes to the main menu and again waits for input to select the desired package, or exit the program. 
-> During execution, it displays information about the command number, the command itself, and the status of its execution. Upon completion, it displays information about the number of executed commands, and the number of errors during execution.
+
+> The console version allows you to run a script in the terminal, 
+> passing it a file with settings as an argument, or use the default file. 
+
+> In the process, you select the desired command package, 
+> then you can start execution, display a list of commands 
+> for this package, or return to the selection of the command package. 
+
+> After executing all the commands, the program goes to the 
+> main menu and again waits for input to 
+> select the desired package, or exit the program. 
+
+> During execution, it displays information about the command number, 
+> the command itself, and the status of its execution. 
+> Upon completion, it displays information about the 
+> number of executed commands, and the number of errors during execution.
+
+> With this utility, you can automate the execution of 
+> commands on a Linux system. 
 > 
-> With this utility, you can automate the execution of commands on a Linux system. Create a file with command packages or use and edit the default file. In the settings file, create new command packages, use the key as the package name, and the value as the list of commands (see the default file).
-In each item, collect the necessary commands, and start their automatic execution when necessary.
-With this utility, it is very convenient to perform routine tasks, automatically execute the necessary commands, and also configure the system after installation.
-The settings file is very simple and clear, and all the commands you need for different cases or different systems will be stored in one place. You will not need to keep them in memory, in different files, enter them manually or search the Internet.
-In the settings file, there is a section from which commands will be executed in any case. This is done in order to bring common commands for all command packages into a single default package.
-You can create your own files with settings or edit the default settings file. If you have created your own settings file, just specify the full path to this file when running the script as a parameter. If you are using the graphical version of the program, just open the file with the settings using the open button. The file must be in json format and have the required structure.
+> Create a file with command packages or use and edit the default file. 
+> In the settings file, create new command packages, 
+> use the key as the package name, 
+> and the value as the list of commands (see the default file).
+
+>In each item, collect the necessary commands, and start their 
+> automatic execution when necessary.
+> 
+> With this utility, it is very convenient to perform routine tasks, 
+> automatically execute the necessary commands, 
+> and also configure the system after installation.
+
+> The settings file is very simple and clear, 
+> and all the commands you need for different cases or 
+> different systems will be stored in one place. 
+
+> You will not need to keep them in memory, 
+> in different files, enter them manually or search the Internet.
+
+> In the settings file, there is a section from 
+> which commands will be executed in any case. 
+> This is done in order to bring common commands for all 
+> command packages into a single default package.
+
+> You can create your own files with settings or edit the default settings file. If you have created your own settings file, just specify the full path to this file when running the script as a parameter. If you are using the graphical version of the program, just open the file with the settings using the open button. The file must be in json format and have the required structure.
 The section with the "default" commands will run anyway.
 
 ```json
@@ -135,10 +177,12 @@ format .json and have the correct settings
 ```
 git clone https://github.com/mysmarthub/linuxautofix.git
 python linuxautofix/linuxautofix/linuxautofix.py /path to the settings file/config.json
+python linuxautofix/linuxautofix/linuxautofix.py
  
  or
 
 sudo python linuxautofix/linuxautofix/linuxautofix.py /path to the settings file/config.json
+sudo python linuxautofix/linuxautofix/linuxautofix.py
 ```
 
 Links:
