@@ -222,7 +222,7 @@ def cli(file, default, name, test):
 
     """
     start_logo()
-    if os.path.exists(str(file)):
+    if os.path.exists(str(file)) and os.path.isfile(file):
         file = file
     else:
         click.echo('The path is not found, we are looking for the default file...')
@@ -236,6 +236,8 @@ def cli(file, default, name, test):
             if name and name in pack_dict:
                 pack_name = name
             else:
+                if name:
+                    click.echo('Name not found...')
                 pack_name = get_pack_name(pack_objects)
             pack_obj = Pack(pack_name, pack_dict[pack_name])
             start(pack_obj, test=test)
