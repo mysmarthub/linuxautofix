@@ -20,15 +20,15 @@ import shutil
 
 import click
 
-__title__ = 'Linux Auto Fix'
-__version__ = '1.0.0'
-__author__ = 'Aleksandr Suvorov'
-__description__ = 'CLI utility for automatic command execution, ' \
-                  'and auto-tuning Linux distributions after installation'
-__url__ = 'https://github.com/mysmarthub'
-__donate__ = 'Donate: https://yoomoney.ru/to/4100115206129186'
-__paypal__ = 'https://paypal.me/myhackband'
-__copyright__ = 'Copyright © 2020-2021 Aleksandr Suvorov'
+TITLE = 'Linux Auto Fix'
+VERSION = '1.0.1'
+AUTHOR = 'Aleksandr Suvorov'
+DESCRIPTION = 'CLI utility for automatic command execution, ' \
+              'and auto-tuning Linux distributions after installation'
+URL = 'https://github.com/mysmarthub'
+YANDEX = 'https://yoomoney.ru/to/4100115206129186'
+PAYPAL = 'https://paypal.me/myhackband'
+COPYRIGHT = 'Copyright © 2020-2021 Aleksandr Suvorov'
 
 
 class Pack:
@@ -79,24 +79,24 @@ def smart_print(text='', char='-'):
         char = ' '
     columns, _ = shutil.get_terminal_size()
     if text:
-        print(f' {text} '.center(columns, char))
+        click.echo(f' {text} '.center(columns, char))
     else:
-        print(f''.center(columns, char))
+        click.echo(f''.center(columns, char))
 
 
 def start_logo():
     smart_print('', '*')
-    smart_print(f'{__title__} {__version__} | Author: {__author__}', '=')
+    smart_print(f'{TITLE} v{VERSION} | Author: {AUTHOR}', '=')
     smart_print(f'CLI utility for automatic command execution,', ' ')
     smart_print(f'and auto-tuning Linux distributions after installation.', ' ')
     smart_print()
 
 
 def end_logo():
+    smart_print(f'{YANDEX}', '-')
+    smart_print(f'{PAYPAL}', '-')
+    smart_print(f'{COPYRIGHT}', '=')
     smart_print('Program completed', '-')
-    smart_print(f'{__donate__}', '-')
-    smart_print(f'{__paypal__}', '-')
-    smart_print(f'{__copyright__}', '=')
 
 
 def get_pack_name(pack_objects: dict):
@@ -105,35 +105,35 @@ def get_pack_name(pack_objects: dict):
         """Shows a simple menu."""
         smart_print('Command packages:')
         for n, name in num_pack.items():
-            print(f'{n}. {name} | Commands[{pack_objects[name].count}]')
+            click.echo(f'{n}. {name} | Commands[{pack_objects[name].count}]')
         smart_print()
-        num = click.prompt(text='Enter the package number and click Enter '
-                                '(ctrl+c to exit): ', type=int)
+        num = click.prompt(text='Enter the package number and click Enter', type=int)
+        if num not in num_pack:
+            smart_print()
+            click.echo('Input Error!')
+            continue
         pack_name = num_pack[num]
         command_list = pack_objects[pack_name].command_list
-        if num not in num_pack:
-            print('Input Error!')
-            continue
         while 1:
             smart_print()
-            print(f'The selected package {num_pack[num]} | '
-                  f'Commands:[{pack_objects[pack_name].count}]')
+            click.echo(f'The selected package {num_pack[num]} | '
+                       f'Commands:[{pack_objects[pack_name].count}]')
             smart_print()
-            print('1. Start')
-            print('2. Show commands')
-            print('3. Cancel')
+            click.echo('1. Start')
+            click.echo('2. Show commands')
+            click.echo('3. Cancel')
             smart_print()
-            user_input = click.prompt(text='Enter the desired number and press ENTER: ', type=int)
+            user_input = click.prompt(text='Enter the desired number and press ENTER', type=int)
             smart_print()
             if user_input not in (1, 2, 3):
-                print('Input Error!')
+                click.echo('Input Error!')
             elif user_input == 1:
                 return pack_name
             elif user_input == 2:
                 click.echo()
                 click.echo(f'{pack_name} commands: ')
                 for command in command_list:
-                    print(command)
+                    click.echo(command)
                 continue
             break
 
@@ -151,10 +151,10 @@ def start(pack_obj, test=False):
         click.echo(msg)
         status = executor(command, test=test)
         if status:
-            print('[Successfully]')
+            click.echo('[Successfully]')
         else:
             errors.append(f'Error: {msg}')
-            print('[Error]')
+            click.echo('[Error]')
         smart_print()
     smart_print('', '=')
     click.echo(f'The command package [{pack_obj.name}] is executed.')
@@ -164,12 +164,12 @@ def start(pack_obj, test=False):
 def print_version(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
-    click.echo(f'{__title__} {__version__} - {__copyright__}')
+    click.echo(f'{TITLE} {VERSION} - {COPYRIGHT}')
     ctx.exit()
 
 
 @click.command()
-@click.option('--file', '-f', help='The path to the file with the command packs')
+@click.option('--file', '-f', help='The path to the file with the command packs', type=click.Path(exists=True))
 @click.option('--default', '-d', is_flag=True, help='Run an additional batch of commands from default')
 @click.option('--test', '-t', is_flag=True, help='Test run, commands will not be executed.')
 @click.option('--name', '-n', help='Name of the package to run automatically')

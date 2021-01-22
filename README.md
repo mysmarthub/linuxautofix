@@ -60,7 +60,7 @@ Termux support:
 ---
 You can easily use the utility with Termux on mobile phones and tablets.
 
-1. Download and install Termux https://play.google.com/store/apps/details?id=com.termux&hl=ru&gl=US
+1. 1. Install Termux
 2. pkg install python
 3. pip install linuxautofix
 4. linuxautofix --help
@@ -256,6 +256,7 @@ Links:
 > [PyPi](https://pypi.org/project/linuxautofix/)
 > 
 > [Sourceforge](https://sourceforge.net/projects/linuxautofix/files/latest/download)
+
 ---
 
 Disclaimer of liability:

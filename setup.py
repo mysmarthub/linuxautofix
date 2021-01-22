@@ -11,16 +11,13 @@ from os.path import join, dirname
 PACKAGE = "linuxautofix"
 VERSION = __import__(PACKAGE).__version__
 AUTHOR = __import__(PACKAGE).__author__
-AUTHOR_EMAIL = "mysmarthub@ya.ru"
-DESCRIPTION = "Linux Auto Fix - utility for automatic command execution, " \
-              "and auto-tuning Linux distributions after installation. | " \
-              "Aleksandr Suvorov | https://github.com/mysmarthub/ | Donate: https://yoomoney.ru/to/4100115206129186 |" \
-              " https://paypal.me/myhackband"
+AUTHOR_EMAIL = __import__(PACKAGE).__email__
+DESCRIPTION = __import__(PACKAGE).__description__
 NAME = "linuxautofix"
-URL = "https://github.com/mysmarthub/linuxautofix"
-LICENSE = 'BSD 3-Clause License'
+URL = __import__(PACKAGE).__url__
+LICENSE = __import__(PACKAGE).__license__
 LONG_DESCRIPTION = open(join(dirname(__file__), 'README.md')).read()
-INSTALL_REQUIRES = []
+INSTALL_REQUIRES = open(join(dirname(__file__), 'requirements.txt')).read()
 PLATFORM = ['Linux', 'Windows']
 CLASSIFIERS = [
     "Development Status :: 5 - Production/Stable",
