@@ -60,7 +60,7 @@ Termux support:
 ---
 You can easily use the utility with Termux on mobile phones and tablets.
 
-1. 1. Install Termux
+1. Install Termux
 2. pkg install python
 3. pip install linuxautofix
 4. linuxautofix --help
@@ -285,3 +285,11 @@ Support:
 ---
     Email: mysmarthub@ya.ru
     Copyright © 2020 Aleksandr Suvorov
+
+-------------
+Dependencies:
+-------------
+
+Uses [Click](https://github.com/pallets/click) by [license](https://github.com/pallets/click/blob/master/LICENSE.rst) 
+
+Uses [Python3+](https://python.org/)
