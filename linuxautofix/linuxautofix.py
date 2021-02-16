@@ -87,8 +87,7 @@ def smart_print(text='', char='-'):
 def start_logo():
     smart_print('', '*')
     smart_print(f'{TITLE} v{VERSION} | Author: {AUTHOR}', '=')
-    smart_print(f'CLI utility for automatic command execution,', ' ')
-    smart_print(f'and auto-tuning Linux distributions after installation.', ' ')
+    smart_print(f'CLI utility for auto-tuning Linux distributions after installation.', '-')
     smart_print()
 
 
@@ -96,7 +95,7 @@ def end_logo():
     smart_print(f'{YANDEX}', '-')
     smart_print(f'{PAYPAL}', '-')
     smart_print(f'{COPYRIGHT}', '=')
-    smart_print('Program completed', '-')
+    smart_print('Program completed', '*')
 
 
 def get_pack_name(pack_objects: dict):
