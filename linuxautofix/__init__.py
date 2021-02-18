@@ -3,7 +3,7 @@
 CLI utility for automatic command execution,
 and auto-tuning Linux distributions after installation.
 """
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 __author__ = 'Aleksandr Suvorov'
 __url__ = 'https://github.com/mysmarthub/linuxautofix/'
 __email__ = 'mysmarthub@ya.ru'

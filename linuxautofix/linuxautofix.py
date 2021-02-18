@@ -21,7 +21,7 @@ import shutil
 import click
 
 TITLE = 'Linux Auto Fix'
-VERSION = '1.0.1'
+VERSION = '1.0.2'
 AUTHOR = 'Aleksandr Suvorov'
 DESCRIPTION = 'CLI utility for automatic command execution, ' \
               'and auto-tuning Linux distributions after installation'
