@@ -1,6 +1,8 @@
 Linux Auto Fix
 ===
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/mysmarthub/linuxautofix)](https://github.com/mysmarthub/linuxautofix/)
+[![Python](https://img.shields.io/static/v1?label=Python&message=3.6/3.7/3.8/3.9&color=yellow)](https://python.org)
+[![GitHub](https://img.shields.io/github/license/mysmarthub/linuxautofix)](https://github.com/mysmarthub/linuxautofix/)
 
 ---
 >Console utility for automatic command execution,
@@ -18,15 +20,12 @@ and auto-tuning Linux distributions after installation.
 [![PyPI](https://img.shields.io/pypi/v/linuxautofix)](https://pypi.org/project/linuxautofix) 
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxautofix)](https://pypi.org/project/linuxautofix)
 [![PyPI - Wheel](https://img.shields.io/pypi/wheel/linuxautofix)](https://pypi.org/project/linuxautofix)
-[![GitHub](https://img.shields.io/github/license/mysmarthub/linuxautofix)](https://github.com/mysmarthub/linuxautofix/)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mysmarthub/linuxautofix)](https://github.com/mysmarthub/linuxautofix/)
-[![GitHub repo size](https://img.shields.io/github/repo-size/mysmarthub/linuxautofix)](https://github.com/mysmarthub/linuxautofix/)
 [![GitHub Repo stars](https://img.shields.io/github/stars/mysmarthub/linuxautofix?style=social)](https://github.com/mysmarthub/linuxautofix/)
 ![GitHub forks](https://img.shields.io/github/forks/mysmarthub/linuxautofix?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/mysmarthub/linuxautofix?style=social)
 [![Donate](https://img.shields.io/static/v1?label=donate&message=paypal&color=green)](https://paypal.me/myhackband)
 [![Donate](https://img.shields.io/static/v1?label=donate&message=yandex&color=yellow)](https://yoomoney.ru/to/4100115206129186)
-[![Donate](https://img.shields.io/static/v1?label=donate&message=4048-4150-0400-5852&color=blue)](https://yoomoney.ru/to/4100115206129186)
+[![Donate](https://img.shields.io/static/v1?label=donate&message=4048-0250-0089-5923&color=blue)](https://yoomoney.ru/to/4100115206129186)
 ---
 [![Download Linux Auto Fix](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/linuxautofix/files/latest/download)
 
@@ -36,28 +35,27 @@ and auto-tuning Linux distributions after installation.
 
 ![Linux Auto Fix](https://github.com/mysmarthub/linuxautofix/raw/master/images/linuxautofix_logo.png)
 
----
-
+-----------------------------
 Help the project financially:
----
-> If you like my projects, you can support me financially - 
-> " for an apartment in Moscow or a hut in the taiga) ..."
-> 
-> [Paypal](https://paypal.me/myhackband)
-> 
-> [Yandex money](https://yoomoney.ru/to/4100115206129186)
-> 
-> Visa: 4048-4150-0400-5852
+-----------------------------
+If you like my projects, you can support me financially -
+" for an apartment in Moscow or a hut in the taiga) ..."
+
+[PayPal](https://paypal.me/myhackband)
+
+[Yandex money](https://yoomoney.ru/to/4100115206129186)
+
+
+>Visa: 4048-0250-0089-5923
 
 
 
->If you can't find a way to donate, write to me:
-> mailto: mysmarthub@ya.ru
+If you can't find a way to donate, write to me:
+mailto: mysmarthub@ya.ru
 
----
-
+---------------
 Termux support:
----
+---------------
 You can easily use the utility with Termux on mobile phones and tablets.
 
 1. Install Termux
@@ -65,66 +63,82 @@ You can easily use the utility with Termux on mobile phones and tablets.
 3. pip install linuxautofix
 4. linuxautofix --help
 
----
-
+-----------
 Description
+-----------
+
+Linux Auto fix - CLI utility for automatic command execution,
+and auto-tuning Linux distributions after installation.
+
+---
+Store frequently executed commands in a single file,
+and run them automatically at any time.
+
 ---
 
-> Linux Auto fix - CLI utility for automatic command execution,
-> and auto-tuning Linux distributions after installation.
+In the default file (config.json), we will collect frequently
+executed commands after installing various Linux
+systems to automate their configuration after installation.
 
-> Store frequently executed commands in a single file, 
-> and run them automatically at any time.
+---
 
->In the default file (config.json), we will collect frequently 
-> executed commands after installing various Linux 
-> systems to automate their configuration after installation.
+Create new command packages, use standard command packages to
+settings of popular Linux systems after installation.
 
-> Create new command packages, use standard command packages to 
-> configure popular Linux systems after installation.
+---
 
-> The program allows you to execute command 
-> packages in automatic and semi-automatic mode.
+The program allows you to execute a set of commands
+in automatic and semi-automatic modes.
 
-> With this utility, you can automate the execution 
-> of commands on a Linux system, 
-> as well as store all the necessary commands in a single 
-> file under different names, for later use.
+---
 
-> Create a file with command packages or use and edit the default file. 
-> In the settings file, create new command packages, 
-> use the key as the package name, 
-> and the value as the list of commands (see the default file).
+With this utility you can automate the execution
+commands in Linux system,
+and also keep all the necessary commands in one
+file under different names, for future use, automatic start.
 
->In each item, collect the necessary commands, and start their 
-> automatic execution when necessary.
+---
 
-> With this utility, it is very convenient to perform routine tasks, 
-> automatically execute the necessary commands, 
-> and also configure the system after installation.
+Create a file with command packages or use and edit the default file.
+In the settings file, create new command packages,
+use the key as the package name,
+and the value as the list of commands (see the default file).
 
-> The settings file is very simple and clear, 
-> and all the commands you need for different cases or 
-> different systems will be stored in one place. 
+---
 
-> You will not need to keep them in memory, 
-> in different files, enter them manually or search the Internet.
+In each package, collect the required commands and run them
+automatic execution if necessary.
 
-> In the file with the command packages, 
-> you can create a "default" package and then use it 
-> as an extension to the executed package.
-> 
-> In it, you can collect the same commands for 
-> different packages and when you run the utility, 
-> pass it the-d parameter, then after executing the main package of commands, 
-> the "default" command package will be additionally executed.
+---
 
-> You can create your own files with settings or edit 
-> the default settings file. 
-> If you have created your own settings file, 
-> just specify the full path to this file when 
-> running the script as a parameter. 
-> The file must be in json format and have the required structure.
+With this utility, it is very convenient to perform routine tasks,
+automatically execute the necessary commands,
+and also configure the system after installation.
+
+---
+
+The settings file is very simple and clear,
+and all the commands you need for different cases or
+different systems will be stored in one place.
+
+---
+
+You will not need to store them in memory,
+in different files, or search the Internet.
+
+---
+
+In the file with command packages
+you can create a "default" package and
+then compile commonly used commands into it.
+
+---
+
+You can create your own customization files or edit
+default settings file.
+If you created your own settings file,
+just give the full path to this file when running the script for the -f [name.file] option.
+The file must be in json format and have the required structure.
 
 ```json
 {
@@ -143,75 +157,73 @@ Description
 }
 ```
 
-> To automatically execute a batch of commands at startup, 
-> pass the-n or --name parameter the name of the batch of commands, 
-> and if it exists after startup, the automatic 
-> execution of commands from this batch will begin. 
-> In addition, you can use -d to add commands from the default package.
+To automatically execute a batch of commands at startup,
+pass the parameter -n [name], or --name [name], the name of the command package,
+as well as the option - for automatic execution and autocompletion.
 
 
----
-
+----
 Help:
 ----
 
 ```
 Usage: linuxautofix.py [OPTIONS]
 
-  Linux Auto Fix - CLI utility for automatic command execution
+    linuxautofix.py --help
 
-  and auto-tuning Linux distributions after installation.
 
-  - To work, the utility uses files that store named command packages,
-  where the name is the name of the command package,     and the value is a
-  list of commands.
+Usage: linuxautofix.py [OPTIONS]
 
-  - You can create your own files with command packages using     default
-  structure.
+  Linux Auto Fix - CLI utility for automatic command execution, and
+  auto-tuning Linux distributions after installation.
 
-  - Use the name "default" for the package with the default commands.
-  You can run them in addition to the selected batch of commands.
+  - Run the utility without parameters to manually select options.
 
-  - You can pass the file name as an argument     or use the default file,
-  it should be located     in the same directory as the file being run.
+  Example: linuxautofix python linuxautofix.py
 
-  - The console version allows you to run the script in the terminal,
-  passing it a file with the settings as an argument,     or use the default
-  file. In the process of working,     you choose the right one command
-  package,     after which you can start executing, display a list     of
-  commands for this package,     or go back to selecting the command
-  package.
+  - Use the option -f/--file [filename] to select a file with command
+  packages.
 
-  - Using the -n or --name parameter, you can specify the name     of the
-  command package at startup,     then the utility will immediately start
-  automatic execution     of commands from this package.
+  Example: linuxautofix -f file.json python linuxautofix.py -f file.json
 
-  - Examples of implementation:
+  - Use the option -n/--name to specify an existing package name.
 
-  python linuxautofix.py --file=config.json -d
+  Example: linuxautofix -f file.json -n Ubuntu python linuxautofix.py -f
+  file.json -n Ubuntu
 
-  python linuxautofix.py --file=config.json-d --name=Ubuntu
+  - Use the option -a for autorun and auto-completion.
 
-  or
+  Example: linuxautofix -f file.json -n Ubuntu -a python linuxautofix.py
+  -f file.json -n Ubuntu -a
 
-  linuxautofix --file=config.json -d
+  Author and developer: Aleksandr Suvorov
 
-  linuxautofix --file=config.json-d --name=Ubuntu
+  Url: https://github.com/mysmarthub/
+
+  Email: mysmarthub@ya.ru
+
+  Donate: https://paypal.me/myhackband
+
+  https://yoomoney.ru/to/4100115206129186
+
+  4048 0250 0089 5923
 
 Options:
-  -f, --file TEXT  The path to the file with the command packs
-  -d, --default    Run an additional batch of commands from default
-  -t, --test       Test run, commands will not be executed.
-  -n, --name TEXT  Name of the package to run automatically
+  -f, --file FILE  The path to the file with the command packs
+  -n, --name TEXT  Name of the package
+  -a, --auto       Auto command execution, auto exit
   -v, --version    Displays the version of the program and exits.
   --help           Show this message and exit.
 
 
+
 ```
 
+------------------------
 Installation and launch:
----
-    You can install the utility using pip:
+------------------------
+
+>You can install the utility using pip:
 
 `pip install linuxautofix`
 
@@ -226,8 +238,8 @@ Installation and launch:
 
 `linuxautofix --file=config.json --name=Ubuntu -d`
 
->On some systems, some commands require administrator rights, 
-> so you can install the utility and run it further using:
+>On some systems, some commands require administrator rights,
+so you can install the utility and run it further using:
 
 `sudo pip install linuxautofix`
 
@@ -240,25 +252,26 @@ Installation and launch:
 `cd linuxautofix`
 
 `pip install -r requirements`
-    
+
 `python linuxautofix/linuxautofix.py --file=linuxautofix/config.json`
-     
+
 or
 
 `sudo pip install -r requirements`
-    
+
 `sudo python linuxautofix/linuxautofix.py`
 
+------
 Links:
----
-> [GitHub](https://github.com/mysmarthub/linuxautofix)
-> 
-> [PyPi](https://pypi.org/project/linuxautofix/)
-> 
-> [Sourceforge](https://sourceforge.net/projects/linuxautofix/files/latest/download)
+------
 
----
+[GitHub](https://github.com/mysmarthub/linuxautofix)
 
+[PyPi](https://pypi.org/project/linuxautofix/)
+
+[Sourceforge](https://sourceforge.net/projects/linuxautofix/files/latest/download)
+
+------------------------
 Disclaimer of liability:
 ------------------------
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -269,27 +282,24 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
+-------------
+Requirements:
+-------------
 
+The program uses Click: https://github.com/pallets/click
+by license: https://github.com/pallets/click/blob/master/LICENSE.rst
+
+Python 3+ : https://python.org
+
+--------
+Support:
+--------
+    Email: mysmarthub@ya.ru
+    Copyright © 2020 Aleksandr Suvorov
+    
     -----------------------------------------------------------------------------
     Licensed under the terms of the BSD 3-Clause License
     (see LICENSE for details)
     https://github.com/mysmarthub
     Copyright © 2020-2021 Aleksandr Suvorov
     -----------------------------------------------------------------------------
-
-> The program uses [Click](https://github.com/pallets/click) by [license](https://github.com/pallets/click/blob/master/LICENSE.rst).
-
-
-Support:
----
-    Email: mysmarthub@ya.ru
-    Copyright © 2020 Aleksandr Suvorov
-
--------------
-Dependencies:
--------------
-
-Uses [Click](https://github.com/pallets/click) by [license](https://github.com/pallets/click/blob/master/LICENSE.rst) 
-
-Uses [Python3+](https://python.org/)

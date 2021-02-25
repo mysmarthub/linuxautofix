@@ -27,7 +27,16 @@
     "sudo apt-get -y install cmatrix",
     "pip3 install virtualenv --no-input",
     "pip3 install wheel --no-input",
-    "python3 -m pip install --user --upgrade setuptools wheel"
+    "python3 -m pip install --user --upgrade setuptools wheel",
+    "pip3 install mycleaner --no-input",
+    "pip3 install smartcleaner --no-input",
+    "pip3 install sfd --no-input",
+    "pip3 install mpassgen --no-input",
+    "pip3 install commandoro --no-input",
+    "pip3 install linuxautofix --no-input",
+    "pip3 install smartpassgen --no-input",
+    "pip3 install smartpassman --no-input",
+    "pip3 install mysmarthub --no-input"
   ],
 
   "Fedora":
@@ -56,7 +65,16 @@
     "sudo dnf install gstreamer1-plugins-good gstreamer1-plugins-ugly",
     "sudo dnf install lame-libs",
     "sudo dnf install ffmpeg-libs",
-    "sudo dnf install compat-ffmpeg28"
+    "sudo dnf install compat-ffmpeg28",
+    "pip install mycleaner --no-input",
+    "pip install smartcleaner --no-input",
+    "pip install sfd --no-input",
+    "pip install mpassgen --no-input",
+    "pip install commandoro --no-input",
+    "pip install linuxautofix --no-input",
+    "pip install smartpassgen --no-input",
+    "pip install smartpassman --no-input",
+    "pip install mysmarthub --no-input"
   ],
 
   "Manjaro":
@@ -74,8 +92,16 @@
     "pacman -Sy twine --noconfirm",
     "pacman -Sy tree --noconfirm",
     "pacman -Sy mc --noconfirm",
-    "pacman -Sy vlc --noconfirm"
-
+    "pacman -Sy vlc --noconfirm",
+    "pip install mycleaner --no-input",
+    "pip install smartcleaner --no-input",
+    "pip install sfd --no-input",
+    "pip install mpassgen --no-input",
+    "pip install commandoro --no-input",
+    "pip install linuxautofix --no-input",
+    "pip install smartpassgen --no-input",
+    "pip install smartpassman --no-input",
+    "pip install mysmarthub --no-input"
   ],
 
   "default":
@@ -91,6 +117,9 @@
     "pip install mpassgen --no-input",
     "pip install commandoro --no-input",
     "pip install linuxautofix --no-input",
+    "pip install smartpassgen --no-input",
+    "pip install smartpassman --no-input",
+    "pip install mysmarthub --no-input",
     "sudo echo GRUB_TIMEOUT=30 >> /etc/default/grub",
     "sudo echo GRUB_GFXMODE=1280x1024 >> /etc/default/grub",
     "sudo echo DefaultTimeoutStopSec=10s >> /etc/systemd/system.conf",

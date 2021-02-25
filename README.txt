@@ -1,5 +1,6 @@
 Linux Auto Fix
 ==============
+
 Console utility for automatic command execution,
 and auto-tuning Linux distributions after installation.
 
@@ -10,8 +11,7 @@ and auto-tuning Linux distributions after installation.
     Copyright © 2020-2021 Aleksandr Suvorov
     -----------------------------------------------------------------------------
 
----
-
+-----------------------------
 Help the project financially:
 -----------------------------
 If you like my projects, you can support me financially -
@@ -23,17 +23,16 @@ Yandex money:
 
 https://yoomoney.ru/to/4100115206129186
 
-Visa: 4048-4150-0400-5852
+Visa: 4048-0250-0089-5923
 
 
 
 If you can't find a way to donate, write to me:
 mailto: mysmarthub@ya.ru
 
----
-
+---------------
 Termux support:
----
+---------------
 You can easily use the utility with Termux on mobile phones and tablets.
 
 1. Install Termux
@@ -41,16 +40,14 @@ You can easily use the utility with Termux on mobile phones and tablets.
 3. pip install linuxautofix
 4. linuxautofix --help
 
----
-
+-----------
 Description
----
+-----------
 
 Linux Auto fix - CLI utility for automatic command execution,
 and auto-tuning Linux distributions after installation.
 
 ---
-
 Store frequently executed commands in a single file,
 and run them automatically at any time.
 
@@ -63,19 +60,19 @@ systems to automate their configuration after installation.
 ---
 
 Create new command packages, use standard command packages to
-configure popular Linux systems after installation.
+settings of popular Linux systems after installation.
 
 ---
 
-The program allows you to execute command
-packages in automatic and semi-automatic mode.
+The program allows you to execute a set of commands
+in automatic and semi-automatic modes.
 
 ---
 
-With this utility, you can automate the execution
-of commands on a Linux system,
-as well as store all the necessary commands in a single
-file under different names, for later use.
+With this utility you can automate the execution
+commands in Linux system,
+and also keep all the necessary commands in one
+file under different names, for future use, automatic start.
 
 ---
 
@@ -86,8 +83,8 @@ and the value as the list of commands (see the default file).
 
 ---
 
-In each item, collect the necessary commands, and start their
-automatic execution when necessary.
+In each package, collect the required commands and run them
+automatic execution if necessary.
 
 ---
 
@@ -103,29 +100,21 @@ different systems will be stored in one place.
 
 ---
 
-You will not need to keep them in memory,
-in different files, enter them manually or search the Internet.
+You will not need to store them in memory,
+in different files, or search the Internet.
 
 ---
 
-In the file with the command packages,
-you can create a "default" package and then use it
-as an extension to the executed package.
+In the file with command packages
+you can create a "default" package and
+then compile commonly used commands into it.
 
 ---
 
-In it, you can collect the same commands for
-different packages and when you run the utility,
-pass it the-d parameter, then after executing the main package of commands,
-the "default" command package will be additionally executed.
-
----
-
-You can create your own files with settings or edit
-the default settings file.
-If you have created your own settings file,
-just specify the full path to this file when
-running the script as a parameter.
+You can create your own customization files or edit
+default settings file.
+If you created your own settings file,
+just give the full path to this file when running the script for the -f [name.file] option.
 The file must be in json format and have the required structure.
 
 ```json
@@ -146,73 +135,70 @@ The file must be in json format and have the required structure.
 ```
 
 To automatically execute a batch of commands at startup,
-pass the-n or --name parameter the name of the batch of commands,
-and if it exists after startup, the automatic
-execution of commands from this batch will begin.
-In addition, you can use -d to add commands from the default package.
+pass the parameter -n [name], or --name [name], the name of the command package,
+as well as the option - for automatic execution and autocompletion.
 
 
----
-
+----
 Help:
 ----
 
 ```
 Usage: linuxautofix.py [OPTIONS]
 
-    Linux Auto Fix - CLI utility for automatic command execution
+    linuxautofix.py --help
 
-    and auto-tuning Linux distributions after installation.
 
-    - To work, the utility uses files that store named command packages,
-    where the name is the name of the command package,     and the value is a
-    list of commands.
+Usage: linuxautofix.py [OPTIONS]
 
-    - You can create your own files with command packages using     default
-    structure.
+  Linux Auto Fix - CLI utility for automatic command execution, and
+  auto-tuning Linux distributions after installation.
 
-    - Use the name "default" for the package with the default commands.
-    You can run them in addition to the selected batch of commands.
+  - Run the utility without parameters to manually select options.
 
-    - You can pass the file name as an argument     or use the default file,
-    it should be located     in the same directory as the file being run.
+  Example: linuxautofix python linuxautofix.py
 
-    - The console version allows you to run the script in the terminal,
-    passing it a file with the settings as an argument,     or use the default
-    file. In the process of working,     you choose the right one command
-    package,     after which you can start executing, display a list     of
-    commands for this package,     or go back to selecting the command
-    package.
+  - Use the option -f/--file [filename] to select a file with command
+  packages.
 
-    - Using the -n or --name parameter, you can specify the name     of the
-    command package at startup,     then the utility will immediately start
-    automatic execution     of commands from this package.
+  Example: linuxautofix -f file.json python linuxautofix.py -f file.json
 
-    - Examples of implementation:
+  - Use the option -n/--name to specify an existing package name.
 
-    python linuxautofix.py --file=config.json -d
+  Example: linuxautofix -f file.json -n Ubuntu python linuxautofix.py -f
+  file.json -n Ubuntu
 
-    python linuxautofix.py --file=config.json-d --name=Ubuntu
+  - Use the option -a for autorun and auto-completion.
 
-    or
+  Example: linuxautofix -f file.json -n Ubuntu -a python linuxautofix.py
+  -f file.json -n Ubuntu -a
 
-    linuxautofix --file=config.json -d
+  Author and developer: Aleksandr Suvorov
 
-    linuxautofix --file=config.json-d --name=Ubuntu
+  Url: https://github.com/mysmarthub/
 
-  Options:
-    -f, --file TEXT  The path to the file with the command packs
-    -d, --default    Run an additional batch of commands from default
-    -t, --test       Test run, commands will not be executed.
-    -n, --name TEXT  Name of the package to run automatically
-    -v, --version    Displays the version of the program and exits.
-    --help           Show this message and exit.
+  Email: mysmarthub@ya.ru
+
+  Donate: https://paypal.me/myhackband
+
+  https://yoomoney.ru/to/4100115206129186
+
+  4048 0250 0089 5923
+
+Options:
+  -f, --file FILE  The path to the file with the command packs
+  -n, --name TEXT  Name of the package
+  -a, --auto       Auto command execution, auto exit
+  -v, --version    Displays the version of the program and exits.
+  --help           Show this message and exit.
+
 
 
 ```
 
+------------------------
 Installation and launch:
----
+------------------------
     You can install the utility using pip:
 
 `pip install linuxautofix`
@@ -251,8 +237,9 @@ or
 
 `sudo python linuxautofix/linuxautofix.py`
 
+------
 Links:
------
+------
 
 [GitHub](https://github.com/mysmarthub/linuxautofix)
 
@@ -260,8 +247,7 @@ Links:
 
 [Sourceforge](https://sourceforge.net/projects/linuxautofix/files/latest/download)
 
----
-
+------------------------
 Disclaimer of liability:
 ------------------------
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -272,7 +258,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
+-------------
+Requirements:
+-------------
+
+The program uses Click: https://github.com/pallets/click
+by license: https://github.com/pallets/click/blob/master/LICENSE.rst
+
+Python 3+ : https://python.org
+
+--------
+Support:
+--------
+    Email: mysmarthub@ya.ru
+    Copyright © 2020 Aleksandr Suvorov
 
     -----------------------------------------------------------------------------
     Licensed under the terms of the BSD 3-Clause License
@@ -280,15 +279,3 @@ SOFTWARE.
     https://github.com/mysmarthub
     Copyright © 2020-2021 Aleksandr Suvorov
     -----------------------------------------------------------------------------
-
-The program uses Click:
------------------------
-https://github.com/pallets/click
-by license:
-https://github.com/pallets/click/blob/master/LICENSE.rst
-
-
-Support:
---------
-    Email: mysmarthub@ya.ru
-    Copyright © 2020 Aleksandr Suvorov
