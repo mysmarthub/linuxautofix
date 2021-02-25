@@ -30,6 +30,31 @@ Visa: 4048-0250-0089-5923
 If you can't find a way to donate, write to me:
 mailto: mysmarthub@ya.ru
 
+
+---
+What's news?
+---
+1. Changed interface
+2. An added menu for working with file. 
+3. Removed -d option
+4. Removed option -y
+5. Added option -a
+6. Added the ability to select autorun commands.
+7. If you do not select autorun or do 
+   not specify an option -a, the program will ask 
+   for permission to execute commands, 
+   which will allow unnecessary commands to be skipped.
+   
+8. If you do not select autorun, 
+   after the program finishes, 
+   you can return to the selection 
+   of packages, or exit.
+   
+9. Dismissed the possibility of using the default package, 
+   now the package named "default" 
+   must be run as a regular package.
+
+
 ---------------
 Termux support:
 ---------------
