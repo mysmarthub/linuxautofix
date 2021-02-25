@@ -210,16 +210,16 @@ Installation and launch:
 
 `linuxautofix`
 
-`linuxautofix --file config.json -d`
+`linuxautofix --file config.json`
 
-`linuxautofix --file=config.json --name=Ubuntu -d`
+`linuxautofix --file config.json --name Ubuntu`
 
 On some systems, some commands require administrator rights,
 so you can install the utility and run it further using:
 
 `sudo pip install linuxautofix`
 
-`sudo linuxautofix --file=config.json --name=Ubuntu -d`
+`sudo linuxautofix --file config.json --name Ubuntu`
 
 You can download the source files and run using Python:
 
@@ -229,7 +229,7 @@ You can download the source files and run using Python:
 
 `pip install -r requirements`
 
-`python linuxautofix/linuxautofix.py --file=linuxautofix/config.json`
+`python linuxautofix/linuxautofix.py --file linuxautofix/config.json`
 
 or
 
