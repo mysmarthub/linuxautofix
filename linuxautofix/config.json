@@ -80,34 +80,36 @@
   "Manjaro":
 
   [
-    "pacman-mirrors --fasttrack",
-    "pacman -Syyu --noconfirm",
-    "pacman -Sy cmatrix --noconfirm",
-    "pacman -Sy python --noconfirm",
-    "pacman -Sy python-pipenv --noconfirm",
-    "pacman -Sy python3 --noconfirm",
-    "pacman -Sy python3-pipenv --noconfirm",
-    "pacman -Sy git --noconfirm",
-    "pacman -Sy htop --noconfirm",
-    "pacman -Sy twine --noconfirm",
-    "pacman -Sy tree --noconfirm",
-    "pacman -Sy mc --noconfirm",
-    "pacman -Sy vlc --noconfirm",
-    "pip install mycleaner --no-input",
-    "pip install smartcleaner --no-input",
-    "pip install sfd --no-input",
-    "pip install mpassgen --no-input",
-    "pip install commandoro --no-input",
-    "pip install linuxautofix --no-input",
-    "pip install smartpassgen --no-input",
-    "pip install smartpassman --no-input",
-    "pip install mysmarthub --no-input"
+    "sudo pacman -S ufw",
+    "sudo pacman -S cmatrix --noconfirm",
+    "sudo pacman -S git --noconfirm",
+    "sudo pacman -S htop --noconfirm",
+    "sudo pacman -S twine --noconfirm",
+    "sudo pacman -S tree --noconfirm",
+    "sudo pacman -S mc --noconfirm",
+    "sudo pacman -S vlc --noconfirm",
+    "sudo pacman -S curl --noconfirm",
   ],
 
   "default":
 
   [
-    "> .gitconfig",
+    "sudo sh -c '> .gitconfig'",
+    "git config --global user.name 'User name'",
+    "git config --global user.email user@mail",
+    "git config --global --list",
+    
+    "sudo sh -c 'echo 'GRUB_TIMEOUT=30' >> /etc/default/grub'",
+    "sudo sh -c 'echo 'GRUB_GFXMODE=1280x1024' >> /etc/default/grub'",
+    "sudo sh -c 'echo 'GRUB_DISABLE_OS_PROBER=false' >> /etc/default/grub'",
+    "sudo update-grub",
+    
+    "sudo sh -c 'echo 'DefaultTimeoutStopSec=10s' >> /etc/systemd/system.conf'",
+    "sudo sh -c 'echo 'vm.swappiness=0' >> /etc/sysctl.conf'",
+    "sudo sh -c 'echo 'vm.vfs_cache_pressure=1000' >> /etc/sysctl.conf'",
+    "sudo systemctl daemon-reload",
+    "sudo sysctl -p",
+    
     "pip install virtualenv --no-input",
     "pip install pipenv --no-input",
     "pip install wheel --no-input",
@@ -120,23 +122,15 @@
     "pip install smartpassgen --no-input",
     "pip install smartpassman --no-input",
     "pip install mysmarthub --no-input",
-    "sudo echo GRUB_TIMEOUT=30 >> /etc/default/grub",
-    "sudo echo GRUB_GFXMODE=1280x1024 >> /etc/default/grub",
-    "sudo echo DefaultTimeoutStopSec=10s >> /etc/systemd/system.conf",
-    "sudo echo ENABLED=yes >> /etc/default/ufw",
-    "sudo echo vm.swappiness=0 >> /etc/sysctl.conf",
-    "sudo echo vm.vfs_cache_pressure = 1000 >> /etc/sysctl.conf",
-    "sudo apt-get -y install -y curl",
-    "systemctl daemon-reload",
+    "pip list",
+    
+    "sudo sh -c 'echo 'ENABLED=yes' >> /etc/default/ufw'",
     "sudo ufw enable",
     "sudo ufw default deny",
     "sudo ufw deny ssh",
     "sudo ufw logging on",
     "sudo ufw status verbose",
-    "sudo update-grub",
-    "sudo sysctl -p",
-    "git config --global user.name",
-    "git config --global user.email",
-    "git config --global --list"
+    "sudo systemctl enable ufw",
+    "sudo systemctl enable ufw.service"
   ]
 }
